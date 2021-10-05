@@ -10,19 +10,39 @@
  * 
  * 
  */
-console.log(`Boas vindas ao jogo de Blackjack!`)
-const novoJogo = confirm(`Quer iniciar uma nova rodada?`)
-if (novoJogo === false) {
-   console.log(`O jogo acabou.`)
-} else {
-   let cartas = []
-   let pontuacaoFinal = 0
-   let passo
-   for (passo = 0; passo < 2; passo++){
-      const carta = comprarCarta()
-      cartas.push(carta.texto)
-      let pontuacao = carta.valor
-      pontuacaoFinal = pontuacao++
-      }
-     console.log(`Usuário - cartas: ${cartas}- pontuação: ${pontuacaoFinal}`)
-}
+// console.log(`Boas vindas ao jogo de Blackjack!`)
+// const novoJogo = confirm(`Quer iniciar uma nova rodada?`)
+// if (novoJogo === false) {
+//    console.log(`O jogo acabou.`)
+// } else {
+//    const sorteio = () => {
+//       const usuario = {
+//             textos: [],
+//             valor: 0
+//       }
+//       for (i = 0; i < 2; i++){
+//             const carta = comprarCarta()
+//             usuario.textos[i] = carta.texto
+//             usuario.valor = usuario.valor + carta.valor
+//       }
+//       const computador = {
+//             textos: [],
+//             valor: 0
+//       }
+//       for (i = 0; i < 2; i++){
+//             const carta = comprarCarta()
+//             computador.textos[i] = carta.texto
+//             computador.valor = computador.valor + carta.valor
+//       }
+//       console.log(`Usuário - cartas: ${usuario.textos} - pontuação: ${usuario.valor}`)
+//       console.log(`Computador - cartas: ${computador.textos} - pontuação: ${computador.valor}`)
+//       if (usuario.valor > computador.valor){
+//             console.log("Usuário venceu!")
+//       } else if (usuario.valor < computador.valor){
+//       console.log("Computador venceu!")
+//       } else {
+//             console.log("Empate!")
+//       }
+//    }
+//   sorteio()
+// } 
