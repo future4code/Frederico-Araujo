@@ -65,7 +65,11 @@ function retornaExpressoesBooleanas() {
 
 // EXERCÍCIO 07
 function retornaNNumerosPares(n) {
-
+const array = []
+for (i = 0; i < n; i++){
+    array[i] = 2 * i
+}
+return array
 }
 
 // EXERCÍCIO 08
