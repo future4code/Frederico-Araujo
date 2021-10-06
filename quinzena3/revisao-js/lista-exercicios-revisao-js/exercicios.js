@@ -49,7 +49,18 @@ function retornaQuantidadeElementos(array) {
 
 // EXERCÍCIO 06
 function retornaExpressoesBooleanas() {
-
+  const array = []
+  const booleano1 = true
+  const booleano2 = false
+  const booleano3 = !booleano2 
+  const booleano4 = !booleano3 
+  array [0] = booleano1 && booleano2 && !booleano4
+  array [1] = (booleano1 && booleano2) || !booleano3
+  array [2] = (booleano2 || booleano3) && (booleano4 || booleano1)
+  array [3] = !(booleano2 && booleano3) || !(booleano1 && booleano3)
+  array [4] = !(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)
+  
+  return array
 }
 
 // EXERCÍCIO 07
