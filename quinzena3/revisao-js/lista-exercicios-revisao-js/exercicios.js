@@ -30,8 +30,15 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 04
 function retornaMaiorNumero(array) {
-  let valor
-  
+  let valor = 0
+  for(i = 0; i < array.length; i++){
+    if(valor < array[i]){
+    valor = array[i]
+    } else{
+      i ++
+    }
+    }
+    return valor
 }
 
 // EXERCÍCIO 05
