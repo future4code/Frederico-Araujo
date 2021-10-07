@@ -241,13 +241,20 @@ return verifica
 
 // EXERCÍCIO 18A
 function retornaPessoasAutorizadas(pessoas) {
-
+const autorizadas = pessoas.filter((condicoes) => {
+return condicoes.altura > 1.5 && condicoes.idade > 14 && condicoes.idade < 60
+})
+return autorizadas
 }
 
 // EXERCÍCIO 18B
 function retornaPessoasNaoAutorizadas(pessoas) {
+  const naoAutorizadas = pessoas.filter((condicoes) => {
+    return condicoes.altura < 1.5 || condicoes.idade <= 14 || condicoes.idade >= 60
+    })
+    return naoAutorizadas
+    }
 
-}
 
 // EXERCÍCIO 19A
 function ordenaPorNome(consultasNome) {
