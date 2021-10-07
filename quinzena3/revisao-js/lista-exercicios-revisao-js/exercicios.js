@@ -112,9 +112,28 @@ function comparaDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 10
 function segundoMaiorEMenor(array) {
+  const arrayOrdenadaDecrescente = []
   
+  let valor = Number()
+  for(a = 0; a < (array.length + array.length ); a++){
+      for(i = 0 ; i < array.length; i++){
+       if (valor < array[i]){
+         valor = array[i]
+        } else if (valor === array[i]){
+          array[i] = 0
+          valor = Number()
+        }
+      }
+      arrayOrdenadaDecrescente[a] = valor    
+  }
+  const ordernadaSemZeros = arrayOrdenadaDecrescente.filter((number) => {
+    return number != 0
+  })
+  const segundoMaiorEMenor = []
+  segundoMaiorEMenor[0] = ordernadaSemZeros[1]
+  segundoMaiorEMenor[1] = ordernadaSemZeros[ordernadaSemZeros.length - 2]
+  return segundoMaiorEMenor
 }
-
 // EXERCÍCIO 11
 function ordenaArray(array) {
 
