@@ -136,17 +136,38 @@ function segundoMaiorEMenor(array) {
 }
 // EXERCÍCIO 11
 function ordenaArray(array) {
-
+    for (i=0; i < array.length; i++){
+    for(j = 0; j< array.length -i -1; j++){
+      if(array[j] > array[j + 1]){
+        let valor = array[j]
+        array[j] = array[j+1]
+        array[j+1] = valor
+      }
+    }
+  }
+  return array
 }
 
 // EXERCÍCIO 12
 function filmeFavorito() {
-
+const objeto = {
+  nome: "O Diabo Veste Prada",
+  ano: 2006,
+  diretor: "David Frankel",
+  atores: ["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"]
+}
+return objeto
 }
 
 // EXERCÍCIO 13
 function imprimeChamada() {
-  // "Venha assistir ao filme NOME_DO_FILME, de ANO, dirigido por DIRECAO e estrelado por ELENCO."
+  const objeto = {
+    nome: "O Diabo Veste Prada",
+    ano: 2006,
+    diretor: "David Frankel",
+    atores: ["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"]
+  }
+  return "Venha assistir ao filme " + objeto.nome + ", de " + objeto.ano + ", dirigido por " + objeto.diretor + " e estrelado por " + objeto.atores[0] + ", " + objeto.atores[1] + ", " + objeto.atores[2] +", "  + objeto.atores[3] + "."
 }
 
 // EXERCÍCIO 14
