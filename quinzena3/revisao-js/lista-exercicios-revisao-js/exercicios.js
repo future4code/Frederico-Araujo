@@ -183,7 +183,12 @@ return objeto
 
 // EXERCÍCIO 15
 function anonimizaPessoa(pessoa) {
-
+  
+  const anonimo = {
+    ...pessoa,
+  }
+  anonimo.nome = "ANÔNIMO"
+  return anonimo
 }
 
 // EXERCÍCIO 16A
