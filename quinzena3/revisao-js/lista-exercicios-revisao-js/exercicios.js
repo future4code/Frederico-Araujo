@@ -209,17 +209,34 @@ function menoresDe18(arrayDePessoas) {
 
 // EXERCÍCIO 17A
 function multiplicaArrayPor2(array) {
-
+const multiplica = array.map((numero) =>{
+  return numero*2
+})
+return multiplica
 }
 
 // EXERCÍCIO 17B
 function multiplicaArrayPor2S(array) {
-
+  const multiplicaString = array.map((numero) =>{
+    const valor = numero*2
+    return valor.toString()
+  })
+  return multiplicaString
 }
 
 // EXERCÍCIO 17C
 function verificaParidade(array) {
-
+const verifica = array.map((parOuImpar)=>{
+  if(parOuImpar % 2 === 0){
+    let valor = parOuImpar
+    return `${valor} é par`
+  }
+  if(parOuImpar % 2 != 0){
+    let valor = parOuImpar
+    return `${valor} é ímpar`
+  }
+})
+return verifica
 }
 
 // EXERCÍCIO 18A
