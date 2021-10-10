@@ -258,12 +258,34 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 
 // EXERCÍCIO 19A
 function ordenaPorNome(consultasNome) {
-
+  for( i = 0 ; i < consultasNome.length ; i++ ){
+    for( j = 0; j < consultasNome.length - 1; j++){
+        if(consultasNome[j].nome> consultasNome[j + 1].nome){
+          let passo
+          passo = consultasNome[j]
+          consultasNome[j] = consultasNome[j+1]
+          consultasNome[j + 1] = passo
+      }
+    }
+  }
+  return consultasNome
 }
 
 // EXERCÍCIO 19B
 function ordenaPorData(consultasData) {
+const novaArray = consultasData
 
+for(i = 0 ; i < consultasData.length; i++){
+  for(j = 0; j < consultasData.length; j++){
+    if(consultasData[j].dataDaConsulta > consultasData[j + 1].dataDaConsulta){
+      let passo
+      passo = consultasData[j]
+      consultasData[j] = consultasData[j +1]
+      consultasData[j+1] = passo
+    }
+  }
+}
+  return novaArray
 }
 
 // EXERCÍCIO 20
