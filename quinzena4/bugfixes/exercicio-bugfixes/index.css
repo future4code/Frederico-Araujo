@@ -119,6 +119,9 @@ td button {
     height: 100px;
 }
 
+.container-do-search img{
+    background: none;
+}
 
 #back-button {
     background-color: white;
