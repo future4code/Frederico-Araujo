@@ -154,3 +154,11 @@ div input{
     margin-left: auto;
     margin-right: auto;
 }
+
+.container-do-search img:hover{
+    opacity: 0.3;
+}
+
+.container-do-search img:active{
+    opacity: 1;
+}
