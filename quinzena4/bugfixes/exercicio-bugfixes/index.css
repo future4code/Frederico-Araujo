@@ -74,6 +74,8 @@ div img {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    width: fit-content;
+    margin: auto;
 }
 
 #container-para-comprar {
@@ -148,7 +150,7 @@ div input{
     }
 
 .tabela{
-    width: 28.4%;
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
 }
