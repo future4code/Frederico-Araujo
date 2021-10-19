@@ -140,3 +140,8 @@ td button:hover{
 #back-button:hover {
     background-color: #635a3d
 }
+
+div input{
+    outline: 0; 
+    border-width: 0 0 3px;
+    }
