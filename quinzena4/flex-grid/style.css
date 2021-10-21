@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilização do Header */
+.container-header{
+    height: 30px;
+    margin:0;
+    padding: 12px;
+    background-color: mediumvioletred;
+    display: flex;
+    align-items: center;
+    }
+
+#logotipo img {
+    height: 15px
+}
+
+#nome{
+    margin: 10px;
+    flex-grow: 1;
+    font-size: 18px;
+}
+
+#login {
+    justify-content: flex-end;
+    margin: 4px;
+    }
+
+#login button{
+    width: 45px;
+}
