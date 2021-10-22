@@ -13,11 +13,11 @@
     align-items: center;
     }
 
-#logotipo img {
+#logo img {
     height: 15px
 }
 
-#nome{
+#name{
     margin: 10px;
     flex-grow: 1;
     font-size: 18px;
@@ -30,4 +30,97 @@
 
 #login button{
     width: 45px;
+}
+
+/* Estilização Main */
+.container-main{
+    display: flex;
+    height: 803px;
+}
+.container-menus{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 400px;
+    background-color: #f2d0e0;
+}
+.container-menus img{
+    height: 20px;
+}
+
+.container-itens{
+    margin: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.menu-image{
+    margin-left: 7px;
+}
+
+.menu-name{
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.arrow{
+    justify-self: flex-end;
+    margin-right: 5px;
+}
+
+.container-cakes{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 10px;
+    justify-items: center;
+    align-items: top;
+    
+}
+
+.container-cakes img{
+    height: fit-content;
+    width: 250px;
+}
+
+
+
+.cakes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: 1px 1px 4px darkgray;
+   }
+
+.cake-image{
+    flex-grow: 1;
+}
+
+.cake-name{
+    font-size: 20px;
+    justify-self: flex-start;
+    flex-grow: 1;
+}
+
+.cake-description{
+    justify-self: flex-end;
+    margin-bottom: 10px;
+}
+
+/* Estilização Footer */
+footer{
+    height: 30px;
+    margin:0;
+    padding: 12px;
+    background-color: mediumvioletred;
+    text-align: center;
+    }
+
+#rodape {
+    margin-top: 5px;
 }
