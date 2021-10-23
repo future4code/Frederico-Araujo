@@ -1,7 +1,54 @@
-*{
-    background-color: black;
+* {
+    margin: 0;
+    padding: 0;
 }
-.cabecalho{
-    background-color: blue;
-    color: red;
-    }
+
+body{
+    background-color: black;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Cabeçalho */
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.menu{
+    flex-grow: 1;
+    background-color: rgb(70, 67, 67);
+    margin: 5px;
+    font-size: 10px;
+    color: rgb(170, 169, 169);
+    box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.664);
+}
+
+/* Sobre mim */
+.sobre-mim{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.sobre-mim img{
+    height: 400px;
+}
+
+.texto-sobre-mim{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size:18px;
+}
+
+.experiencias-titulos h2{
+    box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.664);
+    display: inline;
+    padding: 5px;
+}
+
+.experiencias ul{
+    margin-top: 20px;
+    font-size: 18px;
+}
