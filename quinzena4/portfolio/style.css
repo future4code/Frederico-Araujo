@@ -12,9 +12,14 @@ body{
 /* Cabeçalho */
 .links{
     display: flex;
+    position: sticky;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 
 .menu{
@@ -24,15 +29,17 @@ body{
     font-size: 10px;
     color: rgb(170, 169, 169);
     box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.664);
+    border-radius: 5px;
+    
 }
 
 /* Sobre mim */
-.sobre-mim{
+.titulo{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 35px;
 }
 
-.sobre-mim img{
+.titulo img{
     height: 400px;
 }
 
@@ -44,6 +51,7 @@ body{
 
 .experiencias-titulos h2{
     box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.664);
+    border-radius: 5px;
     display: inline;
     padding: 5px;
 }
@@ -52,3 +60,58 @@ body{
     margin-top: 20px;
     font-size: 18px;
 }
+
+.container-experiencias{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* Contato */
+.contato{
+    background-color: rgb(70, 67, 67);
+    box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.664);
+    border-radius: 5px;
+   margin: 50px;
+   }
+.container-contato{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+
+#formulario-contato{
+   text-align: left;
+    
+}
+
+#redes-sociais{
+flex-grow: 3;
+text-align: center;
+max-width: 300px;
+}
+
+.container-icones{
+    display: flex;
+    justify-content:    space-around ;
+    align-items: center;
+}
+
+.icones{
+    width: 30px;
+}
+
+.icones img{
+    width: 100%;
+}
+
+fieldset{
+    border: none;
+}
+
+legend{
+  font-size: 18px;
+  }
+
