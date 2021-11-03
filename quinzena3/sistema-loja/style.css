@@ -1,0 +1,39 @@
+html {
+    background-color: rgb(73, 71, 71);
+    color: white
+}
+
+a {
+    color: white;
+}
+
+.links {
+    background-color: black;
+    text-align: center;
+  }
+
+.titulo {
+    background-color: black;
+    text-align: center;
+}
+
+.redes-sociais img{
+    max-width: 50px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+    position: relative;
+    left: 46%;
+}
+
+.rodape {
+    position: relative;
+    top: 450px;
+}
+
+#escudo img{
+    width: auto;
+    height: 350px;
+    position: absolute;
+    left: 32%;
+}
