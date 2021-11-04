@@ -1,4 +1,132 @@
-* {
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
     background-color: black;
     color: white;
+    font-family:Arial, Helvetica, sans-serif;
 }
+
+/* Cabeçalho */
+.links{
+    display: flex;
+    position: sticky;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.menu{
+    flex-grow: 1;
+    background-color: rgb(70, 67, 67);
+    margin: 5px;
+    font-size: 10px;
+    color: rgb(170, 169, 169);
+    box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.664);
+    border-radius: 5px;
+}
+
+.menu:hover{
+    background-color: gray;
+    color:rgba(255, 0, 0, 0.664);
+    transition: 0.5s;
+}
+
+.menu:active{
+    background-color: rgb(51, 51, 51);
+    color:rgba(255, 0, 0, 0.664);
+    transition: 0.5s;
+}
+.menu a{
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Sobre mim */
+.titulo{
+    text-align: center;
+    margin-top: 35px;
+}
+
+.titulo img{
+    height: 400px;
+}
+
+.texto-sobre-mim{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size:18px;
+}
+
+.experiencias-titulos h2{
+    box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.664);
+    border-radius: 5px;
+    display: inline;
+    padding: 5px;
+}
+
+.experiencias ul{
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.container-experiencias{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* Contato */
+.contato{
+    background-color: rgb(70, 67, 67);
+    box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.664);
+    border-radius: 5px;
+   margin: 50px;
+   }
+.container-contato{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+
+#formulario-contato{
+   text-align: left;
+    
+}
+
+#redes-sociais{
+flex-grow: 3;
+text-align: center;
+max-width: 300px;
+}
+
+.container-icones{
+    display: flex;
+    justify-content:    space-around ;
+    align-items: center;
+}
+
+.icones{
+    width: 30px;
+}
+
+.icones img{
+    width: 100%;
+}
+
+fieldset{
+    border: none;
+}
+
+legend{
+  font-size: 18px;
+  }
+
