@@ -36,7 +36,8 @@ class App extends React.Component {
     usuarios: [],
     email: "",
     name: "",
-    id:""
+    id: "",
+    buscaNome: ""
   }
 
   componentDidMount = () => {
@@ -88,23 +89,42 @@ class App extends React.Component {
   apagarUsuario = (e) => {
     const id = e.target.value
     console.log(id)
-    axios.delete("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/:id", {
-      param: {
-        ID: id
-      }
-    }, {
-      headers: {
-        Authorization: "Frederico-Neves-Joy"
-      }
-    }).then((res) => {
-      alert("Usuário excluído com sucesso!")
-    }).catch((err) => {
-      alert("Erro ao excluir usuário")
-    })
+    const certeza = window.confirm("Tem certeza que deseja deletar?")
+    if (certeza === true) {
+      axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
+        headers: {
+          Authorization: "Frederico-Neves-Joy"
+        }
+      }).then((res) => {
+        alert("Usuário excluído com sucesso!")
+      }).catch((err) => {
+        alert("Erro ao excluir usuário")
+      })
+    } else {
+      alert("Operação cancelada")
+    }
+
+  }
+
+  buscarNome = (e) => {
+    this.setState({ buscaNome: e.target.value })
   }
 
   render() {
-    // console.log(this.state.usuarios)
+
+    const usuario = this.state.usuarios.map((item) => {
+      return (
+        <div key={item.id}>
+          <ul>
+            <li>
+              <h3>{item.name}</h3>
+            </li>
+          </ul>
+          <button onClick={this.apagarUsuario} value={item.id}>Deletar</button>
+        </div>
+      )
+    })
+    // console.log(lista)
     return (
       <div>
         <LayoutCadastro>
@@ -124,20 +144,11 @@ class App extends React.Component {
           <div>
             <h1>Lista de usuários</h1>
           </div>
-
-          {this.state.usuarios.map((item) => {
-            return (
-              <div>
-                <ul>
-                  <li>
-                    <h3>{item.name}</h3>
-                  </li>
-                </ul>
-                <button onClick={this.apagarUsuario} value={item.id}>Deletar</button>
-              </div>
-            )
-          })}
-
+          <div>
+            <input placeholder="Insira o nome" value={this.state.buscaNome} onChange={this.buscarNome} />
+            <button>Buscar</button>
+          </div>
+          {usuario}
         </LayoutLista>
       </div>
 
