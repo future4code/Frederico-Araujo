@@ -78,23 +78,33 @@ const Content = (props) => {
             </ContainerContent>
         )
     } else {
-        // console.log(playlistName)
         return (
             <ContainerContent>
                 <div className="add-music">
                     <h3>Adicionar música à playlist - {playlistName}</h3>
                     <input placeholder="Nome da música" value={props.track.name} onChange={props.setTrackName} type="text" />
                     <input placeholder="Nome do artista" value={props.track.artist} onChange={props.setArtistName} type="text" />
-                    <input placeholder="URL" value={props.track.url} onChange={props.setTrackUrl} type="text" />
+                    <input placeholder="URL do YouTube" value={props.track.url} onChange={props.setTrackUrl} type="text" />
                     <button onClick={() => props.addTrackToPlaylist(props.id)}>Adicionar</button>
                 </div>
                 <hr />
                 <div className="musics">
                     {
                         playlistTracks.map((item) => {
+                            const url = item.url
+                            const urlSplit = url.split("")
+                            const youTube = "https://www.youtube.com/"
+                            const embed = "embed/"
+                            let endereco = ""
+                            for (let i = 32; urlSplit[i] !== "&" ; i++){
+                               endereco = endereco.concat(urlSplit[i])
+                            }
+                            // console.log(endereco)
+                            const urlConcatenada = youTube + embed + endereco
+                            console.log(urlConcatenada)
                             return (
                                 <div className="music" key={item.id}>
-                                    <iframe src={item.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                    <iframe src={urlConcatenada} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                     <h3>{item.name} - {item.artist}</h3>
                                 </div>
                             )
