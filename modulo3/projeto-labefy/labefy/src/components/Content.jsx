@@ -2,7 +2,8 @@ import React, { memo } from "react";
 import styled from "styled-components";
 
 const ContainerContent = styled.div`
-    background-color: #b47500;
+    background-color: #272626;
+    color: white;
     height: 100%;
     width: 100%;
     padding: 8px;
@@ -12,14 +13,29 @@ const ContainerContent = styled.div`
 
     .add-music{
         text-align: center;
-
-        input{
-            text-align: center;
-        }
-
+        
         button{
-            cursor: pointer;
-        }
+                cursor: pointer;
+                border: none;
+                background-color: #ffa600;
+                color: white;
+                border-radius: 50px;
+                padding: 10px;
+
+                :active{
+                    background-color: #be7c01;
+                    transition: 0s;
+                }
+            }
+
+            input{
+                margin: 5px 5px;
+                padding: 10px;
+                border: none;
+                margin-bottom: 10px;
+                border-radius: 50px;
+                text-align: center;
+            }
     }
 
     .musics{
@@ -36,7 +52,7 @@ const ContainerContent = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: start;
-        background-color: #6b5119;
+        background-color: #ffa600;
         color: white;
         box-shadow: 2px 2px 5px black;
 
@@ -79,7 +95,8 @@ const Content = (props) => {
     })
 
     const playlistName = playlist.map((item) => {
-        return item.name
+        //Função para retornar o nome da playlist com a primeira letra maiúscula.
+        return item.name[0].toUpperCase() + item.name.substr(1)
     })
 
     if (playlistTracks === "") {

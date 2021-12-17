@@ -2,13 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerMenu = styled.div`
-    background-color: #c58001;
-    height: 100%;
+    background-color: black;
+    color: white;
+    height: 100vh;
     max-width: 300px;
+    min-width: 250px;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
+    border-right: 1px solid white;
 
 
     .add-playlist{
@@ -23,6 +26,10 @@ const ContainerMenu = styled.div`
                 button{
                     margin: 4px;
                     cursor: pointer;
+                }
+
+                h4{
+                    text-align:center;
                 }
             }
 
@@ -46,8 +53,12 @@ const ContainerMenu = styled.div`
         padding: 8px;
 
         :hover{
-            background-color: orange;
+            background-color: #ffa600;
             transition: 0.4s ease-in;
+            button{
+                color: white;
+                transition: 0.4s ease-in;
+            }
         }
 
         h4:first-letter{
@@ -56,11 +67,14 @@ const ContainerMenu = styled.div`
 
         button{
             border: none;
+            border-radius: 5px;
+            padding: 4px;
             background-color: transparent;
             cursor: pointer;
-
+            
                 :hover{
-                    background-color: darkorange;
+                    color: white;
+                    background-color: #272626;
                     transition: 0.4s ease-in;
                 }
                 :active{
@@ -73,8 +87,31 @@ const ContainerMenu = styled.div`
             display: flex;
             flex-direction: column;        
             }
-
+            
 }
+
+.new-playlist{
+            button{
+                border: none;
+                background-color: #ffa600;
+                color: white;
+                border-radius: 50px;
+                padding: 10px;
+
+                :active{
+                    background-color: #be7c01;
+                    transition: 0s;
+                }
+            }
+
+            input{
+                margin: 5px auto;
+                padding: 10px;
+                border: none;
+                margin-bottom: 10px;
+                border-radius: 50px;
+            }
+        }
 `
 
 const Menu = (props) => {
@@ -107,7 +144,7 @@ const Menu = (props) => {
                 <hr />
                 <div className="add-playlist">
                     <h4>Adicionar playlist</h4>
-                    <div>
+                    <div className="new-playlist">
                         <input placeholder="Digite o nome da nova playlist" onChange={newPlaylist} />
                         <button onClick={addPlaylist}>Adicionar</button>
                     </div>
@@ -121,7 +158,7 @@ const Menu = (props) => {
                     Nenhuma playlist adicionada
                 </p>
                 <h4>Adicionar playlist</h4>
-                <div>
+                <div className="new-playlist">
                     <input placeholder="Digite o nome da nova playlist" onChange={newPlaylist} />
                     <button onClick={addPlaylist}>Adicionar</button>
                 </div>
