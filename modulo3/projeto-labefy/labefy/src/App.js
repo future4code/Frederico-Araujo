@@ -115,11 +115,13 @@ class App extends React.Component {
         }
       })
       .then(() => {
-        this.setState({track: {
-          name: "",
-          artist: "",
-          url: "",
-        }})
+        this.setState({
+          track: {
+            name: "",
+            artist: "",
+            url: "",
+          }
+        })
         axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`,
           {
             headers: {
@@ -132,6 +134,32 @@ class App extends React.Component {
           .catch((err) => {
             alert(err.response)
           })
+      })
+      .catch((err) => {
+        console.log(err.response)
+      })
+  }
+
+  removeTrackFromPlaylist = (trackID) => {
+    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.playlistID}/tracks/${trackID}`,
+      {
+        headers: {
+          Authorization: "frederico-neves-joy"
+        }
+      })
+      .then((response) => {
+        axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.playlistID}/tracks`,
+        {
+          headers: {
+            Authorization: "frederico-neves-joy"
+          }
+        })
+        .then((response) => {
+          this.setState({ playlistTracks: response.data.result.tracks })
+        })
+        .catch((err) => {
+          alert(err.response)
+        })
       })
       .catch((err) => {
         console.log(err.response)
@@ -151,14 +179,14 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(this.state.playlistID)
+    console.log(this.state.playlistTracks)
     return (
       <Body>
         <GlobalStyle />
         <Header />
         <ContainerMenuAndContent>
           <Menu playlists={this.state.playlists} body={this.getPlaylistName} addPlaylist={this.createPlaylist} deletePlaylist={this.deletePlaylist} getPlaylistTracksAndID={this.getPlaylistTracksAndID} />
-          <Content playlistTracks={this.state.playlistTracks} playlists={this.state.playlists} track={this.state.track} setTrackName={this.setTrackName} setArtistName={this.setArtistName} setTrackUrl={this.setTrackUrl} addTrackToPlaylist={this.addTrackToPlaylist} id={this.state.playlistID} />
+          <Content playlistTracks={this.state.playlistTracks} playlists={this.state.playlists} track={this.state.track} setTrackName={this.setTrackName} setArtistName={this.setArtistName} setTrackUrl={this.setTrackUrl} addTrackToPlaylist={this.addTrackToPlaylist} id={this.state.playlistID} removeTrackFromPlaylist={this.removeTrackFromPlaylist} />
         </ContainerMenuAndContent>
       </Body>
     );

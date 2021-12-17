@@ -16,6 +16,10 @@ const ContainerContent = styled.div`
         input{
             text-align: center;
         }
+
+        button{
+            cursor: pointer;
+        }
     }
 
     .musics{
@@ -32,7 +36,7 @@ const ContainerContent = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: start;
-        background-color: #b4a17c;
+        background-color: #6b5119;
         color: white;
         box-shadow: 2px 2px 5px black;
 
@@ -43,6 +47,13 @@ const ContainerContent = styled.div`
 
             iframe{
                 width: 100%;
+            }
+
+            .remover-musica{
+                background-color: red;
+                width: 100%;
+                text-align: center;
+                cursor: pointer;
             }
     }
     }
@@ -91,21 +102,35 @@ const Content = (props) => {
                 <div className="musics">
                     {
                         playlistTracks.map((item) => {
+                            // Essa parte do código pode parecer confusa, mas eu tive que criar uma forma de receber os 
+                            // diferentes tipos de url q o youtube possui para o mesmo video e acrescentar o termo "embed", 
+                            // para que o video pudesse ser reproduzido no meu site.
                             const url = item.url
                             const urlSplit = url.split("")
+                            let endereco = ""
+
+                            if (url.includes("watch?v=")) {
+                                for (let i = 32; urlSplit[i] !== "&"; i++) {
+                                    endereco = endereco.concat(urlSplit[i])
+                                }
+                            } else {
+                                for (let i = 17; i < urlSplit.length; i++) {
+                                    endereco = endereco.concat(urlSplit[i])
+                                }
+                            }
+
                             const youTube = "https://www.youtube.com/"
                             const embed = "embed/"
-                            let endereco = ""
-                            for (let i = 32; urlSplit[i] !== "&" ; i++){
-                               endereco = endereco.concat(urlSplit[i])
-                            }
-                            // console.log(endereco)
                             const urlConcatenada = youTube + embed + endereco
-                            console.log(urlConcatenada)
+
+                            console.log(item.id)
                             return (
                                 <div className="music" key={item.id}>
                                     <iframe src={urlConcatenada} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                     <h3>{item.name} - {item.artist}</h3>
+                                    <div className="remover-musica" onClick={() => props.removeTrackFromPlaylist(item.id)} value={props.id}>
+                                        <h4>Remover</h4>
+                                    </div>
                                 </div>
                             )
                         })

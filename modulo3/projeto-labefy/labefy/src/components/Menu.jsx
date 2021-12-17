@@ -22,6 +22,7 @@ const ContainerMenu = styled.div`
 
                 button{
                     margin: 4px;
+                    cursor: pointer;
                 }
             }
 
