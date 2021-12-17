@@ -110,8 +110,14 @@ const Content = (props) => {
                             let endereco = ""
 
                             if (url.includes("watch?v=")) {
-                                for (let i = 32; urlSplit[i] !== "&"; i++) {
-                                    endereco = endereco.concat(urlSplit[i])
+                                if (url.includes("&")) {
+                                    for (let i = 32; urlSplit[i] !== "&"; i++) {
+                                        endereco = endereco.concat(urlSplit[i])
+                                    }
+                                } else{
+                                    for (let i = 32; i < urlSplit.length; i++) {
+                                        endereco = endereco.concat(urlSplit[i])
+                                    }
                                 }
                             } else {
                                 for (let i = 17; i < urlSplit.length; i++) {
@@ -122,8 +128,9 @@ const Content = (props) => {
                             const youTube = "https://www.youtube.com/"
                             const embed = "embed/"
                             const urlConcatenada = youTube + embed + endereco
+                            console.log(urlConcatenada)
+                            console.log(url)
 
-                            console.log(item.id)
                             return (
                                 <div className="music" key={item.id}>
                                     <iframe src={urlConcatenada} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>

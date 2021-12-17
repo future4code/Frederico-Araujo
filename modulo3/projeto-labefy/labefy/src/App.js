@@ -179,7 +179,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.playlistTracks)
+    // console.log(this.state.playlistTracks)
     return (
       <Body>
         <GlobalStyle />
