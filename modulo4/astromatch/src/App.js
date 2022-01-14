@@ -27,13 +27,9 @@ function App() {
         getProfileToChoose();
     }, [body]);
 
-    useEffect(() => {
-        getMatches();
-    }, []);
-
-    const choosePerson = () => {
+    const choosePerson = async () => {
         try {
-            axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/choose-person`, body)
+            await axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/choose-person`, body)
         } catch (error) {
             console.log(error);
         }
@@ -48,10 +44,10 @@ function App() {
         }
     }
 
-    const clear = () => {
+    const clear = async () => {
         try {
-            axios.put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/clear`)
-            getMatches()
+            await axios.put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/clear`)
+            await getMatches()
         } catch (error) {
             console.log(error);
         }
