@@ -17,6 +17,7 @@ const Card = styled.div`
     align-items: center;
     padding: 18px;
     width: 50vw;
+    height: 70vh;
     background-color: #cc8f99;
     border-radius: 25px;
     box-shadow: 3px 3px 5px #cc5b6e;
@@ -37,6 +38,8 @@ const Card = styled.div`
 const Content = styled.div`
    .image{
        height: 35vh;
+       width: 35vh;
+       border-radius: 50%;
    }
 `
 

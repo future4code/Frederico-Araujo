@@ -13,7 +13,7 @@ function App() {
         choice: "",
     });
     const [matches, setMatches] = useState([]);
-    console.log(matches)
+    
     const getProfileToChoose = async () => {
         try {
             const response = await axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/person`)
@@ -47,6 +47,7 @@ function App() {
     const clear = async () => {
         try {
             await axios.put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/clear`)
+            await getProfileToChoose()
             await getMatches()
         } catch (error) {
             console.log(error);

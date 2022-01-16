@@ -13,7 +13,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  align-items: center;
+  align-items: start;
   padding: 18px;
   width: 50vw;
   background-color: #cc8f99;
@@ -30,19 +30,42 @@ const Card = styled.div`
       padding: 0;
     }
   }
+
+  .navigation {
+    align-self: center;
+  }
 `;
 
 const Content = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
   flex-wrap: wrap;
-  max-width: 40vw;
+  width: 50vw;
+  max-height: 50vh;
+  overflow-x: scroll;
+  ::-webkit-scrollbar {
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #cc8f99;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #cc5b6e;
+  }
 
   img {
-    height: 10vh;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
   }
 
   .person {
     margin: 8px;
+    width: 15vw;
   }
 `;
 
