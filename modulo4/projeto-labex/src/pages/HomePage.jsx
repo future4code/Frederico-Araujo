@@ -23,7 +23,7 @@ const Background = styled.div`
 const LoginMenu = styled.div`
   background-color: rgb(209, 209, 209);
   background: linear-gradient(
-    180deg,
+    120deg,
     rgba(209, 209, 209, 1) 0%,
     rgba(120, 120, 120, 1) 46%,
     rgba(74, 74, 74, 1) 100%
@@ -66,8 +66,8 @@ const HomePage = () => {
   const history = useHistory();
   const params = useParams();
 
-  const Travels = () => {
-    history.push("/travels");
+  const Trips = () => {
+    history.push("/trips");
   };
 
   const Login = () => {
@@ -87,8 +87,8 @@ const HomePage = () => {
             </Button>
           </div>
           <div className="button">
-            <Button variant="contained" color="secondary" onClick={Travels}>
-              Travels
+            <Button variant="contained" color="secondary" onClick={Trips}>
+              Trips
             </Button>
           </div>
         </div>
