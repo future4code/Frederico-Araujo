@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory, useParams } from "react-router-dom";
 
-import Logo from "../midia/logo.png";
+import Logo from "../midia/logo-white.png";
 import { Button } from "@mui/material";
 
 const Background = styled.div`
@@ -29,6 +29,7 @@ const LoginMenu = styled.div`
     rgba(74, 74, 74, 1) 100%
   );
   width: 70%;
+  max-width: 1000px;
   height: 70vh;
   border-radius: 30px;
   box-shadow: 0px 0px 30px 5px white;
@@ -71,7 +72,7 @@ const HomePage = () => {
   };
 
   const Login = () => {
-    history.push("/Login");
+    history.push("/login");
   };
 
   return (

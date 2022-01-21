@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import MeteorRainLoading from "react-loadingg/lib/MeteorRainLoading";
+import Header from "../components/Header";
+import { Button } from "@mui/material";
 
 // import { useHistory, useParams } from "react-router-dom";
 
@@ -15,8 +18,13 @@ const Background = styled.div`
   width: 100vw;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  overflow-y: scroll;
+  h3 {
+    color: white;
+  }
 `;
 
 const Travels = styled.div`
@@ -27,23 +35,43 @@ const Travels = styled.div`
     rgba(120, 120, 120, 1) 46%,
     rgba(74, 74, 74, 1) 100%
   );
+  color: white;
+  margin: 40px;
+  padding: 20px;
+  width: 80vw;
+  max-width: 1000px;
+  min-height: 50vh;
+  border-radius: 30px;
+  box-shadow: 0px 0px 30px 5px white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h1 {
+    text-align: center;
+  }
+
+  Button {
+    align-self: center;
+    width: 40vw;
+    max-width: 200px;
+  }
 `;
 
 const TravelsPage = () => {
-  const { trips, setTrips } = useState();
-  const aluno = "frederico-joy";
+  const [trips, setTrips] = useState();
+  const aluno = "fred-joy";
   // const params = useParams();
   // console.log(params);
 
   const getTrips = async () => {
+    const response = await axios.get(
+      `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}/trips`
+    );
     try {
-      const response = await axios.get(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}/trips`
-      );
-      setTrips(response);
-      console.log(response);
+      setTrips(response.data.trips);
+      console.log(response.data.trips);
     } catch {
-      // alert(response.error);
+      alert(response.error);
     }
   };
 
@@ -51,11 +79,41 @@ const TravelsPage = () => {
     getTrips();
   }, []);
 
-  return (
-    <Background>
-      <Travels>Travel</Travels>
-    </Background>
-  );
+  if (trips === undefined) {
+    return (
+      <Background>
+        <MeteorRainLoading />
+        <h3>Loading...</h3>
+      </Background>
+    );
+  } else {
+    return (
+      <div>
+        <Header />
+        <Background>
+          {trips.map((item) => {
+            return (
+              <Travels>
+                <h1>
+                  {item.name}
+                  <hr></hr>
+                </h1>
+                <h3>Planeta: {item.planet}</h3>
+                <h4>Duração: {item.durationInDays} dias</h4>
+                <p>{item.description}</p>
+                <Button variant="contained" color="secondary">
+                  Não ativado
+                </Button>
+                <Button variant="contained" color="secondary">
+                  Não ativado
+                </Button>
+              </Travels>
+            );
+          })}
+        </Background>
+      </div>
+    );
+  }
 };
 
 export default TravelsPage;
