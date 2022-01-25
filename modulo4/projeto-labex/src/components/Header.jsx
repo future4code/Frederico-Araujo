@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory, useParams } from "react-router-dom";
 import Logo from "../midia/logo-white.png";
 
 const HeaderStyle = styled.div`
+  margin: 0;
+  padding: 0;
   width: 100vw;
   height: 15vh;
   background-color: black;
@@ -12,12 +15,18 @@ const HeaderStyle = styled.div`
   justify-content: center;
   img {
     height: 12vh;
+    cursor: pointer;
   }
 `;
 const Header = () => {
+  const history = useHistory();
+
+  const home = () => {
+    history.push("/");
+  };
   return (
     <HeaderStyle>
-      <img src={Logo} alt="Labe-x logo" />
+      <img src={Logo} alt="Labe-x logo" onClick={home} />
     </HeaderStyle>
   );
 };

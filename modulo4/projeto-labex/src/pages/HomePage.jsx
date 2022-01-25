@@ -67,11 +67,11 @@ const HomePage = () => {
   const history = useHistory();
   const params = useParams();
 
-  const Trips = () => {
+  const trips = () => {
     history.push("/trips");
   };
 
-  const Login = () => {
+  const login = () => {
     history.push("/login");
   };
 
@@ -83,12 +83,12 @@ const HomePage = () => {
         </div>
         <div className="buttons">
           <div className="button">
-            <Button variant="contained" color="secondary" onClick={Login}>
+            <Button variant="contained" color="secondary" onClick={login}>
               Login
             </Button>
           </div>
           <div className="button">
-            <Button variant="contained" color="secondary" onClick={Trips}>
+            <Button variant="contained" color="secondary" onClick={trips}>
               Trips
             </Button>
           </div>

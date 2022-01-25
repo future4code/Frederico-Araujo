@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { useHistory, useParams } from "react-router-dom";
 import MeteorRainLoading from "react-loadingg/lib/MeteorRainLoading";
 import Header from "../components/Header";
 import { Button } from "@mui/material";
@@ -21,7 +22,8 @@ const Background = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
   h3 {
     color: white;
   }
@@ -60,6 +62,7 @@ const Travels = styled.div`
 const TravelsPage = () => {
   const [trips, setTrips] = useState();
   const aluno = "fred-joy";
+  const history = useHistory();
   // const params = useParams();
   // console.log(params);
 
@@ -78,6 +81,10 @@ const TravelsPage = () => {
   useEffect(() => {
     getTrips();
   }, []);
+
+  const applicationForm = () => {
+    history.push("/trips/application");
+  };
 
   if (trips === undefined) {
     return (
@@ -101,11 +108,12 @@ const TravelsPage = () => {
                 <h3>Planeta: {item.planet}</h3>
                 <h4>Duração: {item.durationInDays} dias</h4>
                 <p>{item.description}</p>
-                <Button variant="contained" color="secondary">
-                  Não ativado
-                </Button>
-                <Button variant="contained" color="secondary">
-                  Não ativado
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={applicationForm}
+                >
+                  Inscrever-se
                 </Button>
               </Travels>
             );
