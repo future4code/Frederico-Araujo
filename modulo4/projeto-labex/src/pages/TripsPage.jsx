@@ -6,8 +6,6 @@ import MeteorRainLoading from "react-loadingg/lib/MeteorRainLoading";
 import Header from "../components/Header";
 import { Button } from "@mui/material";
 
-// import { useHistory, useParams } from "react-router-dom";
-
 const Background = styled.div`
   background: rgb(43, 60, 140);
   background: linear-gradient(
@@ -42,7 +40,7 @@ const Travels = styled.div`
   padding: 20px;
   width: 80vw;
   max-width: 1000px;
-  min-height: 50vh;
+  min-height: 500px;
   border-radius: 30px;
   box-shadow: 0px 0px 30px 5px white;
   display: flex;
@@ -63,7 +61,7 @@ const TravelsPage = () => {
   const [trips, setTrips] = useState();
   const aluno = "fred-joy";
   const history = useHistory();
-  // const params = useParams();
+  const params = useParams();
   // console.log(params);
 
   const getTrips = async () => {
@@ -72,7 +70,6 @@ const TravelsPage = () => {
     );
     try {
       setTrips(response.data.trips);
-      console.log(response.data.trips);
     } catch {
       alert(response.error);
     }
@@ -82,8 +79,8 @@ const TravelsPage = () => {
     getTrips();
   }, []);
 
-  const applicationForm = () => {
-    history.push("/trips/application");
+  const applicationForm = (id) => {
+    history.push(`/trips/application/${id}`);
   };
 
   if (trips === undefined) {
@@ -100,7 +97,7 @@ const TravelsPage = () => {
         <Background>
           {trips.map((item) => {
             return (
-              <Travels>
+              <Travels key={item.id}>
                 <h1>
                   {item.name}
                   <hr></hr>
@@ -111,7 +108,8 @@ const TravelsPage = () => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={applicationForm}
+                  value={item.id}
+                  onClick={() => applicationForm(item.id)}
                 >
                   Inscrever-se
                 </Button>

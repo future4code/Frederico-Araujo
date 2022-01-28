@@ -65,7 +65,7 @@ const LoginMenu = styled.div`
 
 const HomePage = () => {
   const history = useHistory();
-  const params = useParams();
+  // const params = useParams();
 
   const trips = () => {
     history.push("/trips");

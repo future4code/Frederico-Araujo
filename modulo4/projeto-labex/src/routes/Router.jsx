@@ -20,7 +20,7 @@ const Router = () => {
           <TripsPage />
         </Route>
 
-        <Route exact path={"/trips/application"}>
+        <Route exact path={"/trips/application/:id"}>
           <ApplicationForm />
         </Route>
 
