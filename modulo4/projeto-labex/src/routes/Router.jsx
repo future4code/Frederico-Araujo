@@ -24,19 +24,19 @@ const Router = () => {
           <ApplicationForm />
         </Route>
 
-        <Route exact path={"/admin"}>
-          <AdminPage />
-        </Route>
-
         <Route exact path={"/login"}>
           <LoginPage />
         </Route>
 
-        <Route exact path={"/create-trip"}>
+        <Route exact path={"/admin/trips"}>
+          <AdminPage />
+        </Route>
+
+        <Route exact path={"/admin/trips/create"}>
           <CreateTripPage />
         </Route>
 
-        <Route exact path={"/trip-detail"}>
+        <Route exact path={"/admin/trips/:id"}>
           <TripDetailsPage />
         </Route>
       </Switch>

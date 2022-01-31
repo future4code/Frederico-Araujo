@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import MeteorRainLoading from "react-loadingg/lib/MeteorRainLoading";
 import Header from "../components/Header";
 import { Button } from "@mui/material";
@@ -27,7 +27,7 @@ const Background = styled.div`
   }
 `;
 
-const Travels = styled.div`
+const Trips = styled.div`
   background-color: rgb(209, 209, 209);
   background: linear-gradient(
     120deg,
@@ -57,12 +57,10 @@ const Travels = styled.div`
   }
 `;
 
-const TravelsPage = () => {
+const TripsPage = () => {
   const [trips, setTrips] = useState();
   const aluno = "fred-joy";
   const history = useHistory();
-  const params = useParams();
-  // console.log(params);
 
   const getTrips = async () => {
     const response = await axios.get(
@@ -77,6 +75,7 @@ const TravelsPage = () => {
 
   useEffect(() => {
     getTrips();
+    document.title = "Viagens";
   }, []);
 
   const applicationForm = (id) => {
@@ -97,7 +96,7 @@ const TravelsPage = () => {
         <Background>
           {trips.map((item) => {
             return (
-              <Travels key={item.id}>
+              <Trips key={item.id}>
                 <h1>
                   {item.name}
                   <hr></hr>
@@ -113,7 +112,7 @@ const TravelsPage = () => {
                 >
                   Inscrever-se
                 </Button>
-              </Travels>
+              </Trips>
             );
           })}
         </Background>
@@ -122,4 +121,4 @@ const TravelsPage = () => {
   }
 };
 
-export default TravelsPage;
+export default TripsPage;

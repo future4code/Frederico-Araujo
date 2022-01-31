@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Logo from "../midia/logo-white.png";
 import { Button } from "@mui/material";
@@ -31,6 +31,7 @@ const LoginMenu = styled.div`
   width: 70%;
   max-width: 1000px;
   height: 70vh;
+  min-height: 500px;
   border-radius: 30px;
   box-shadow: 0px 0px 30px 5px white;
   display: flex;
@@ -65,14 +66,22 @@ const LoginMenu = styled.div`
 
 const HomePage = () => {
   const history = useHistory();
-  // const params = useParams();
+  const token = window.localStorage.getItem("token");
+
+  useEffect(() => {
+    document.title = "Página Inicial";
+  }, []);
 
   const trips = () => {
     history.push("/trips");
   };
 
   const login = () => {
-    history.push("/login");
+    if (token === null) {
+      history.push("/login");
+    } else {
+      history.push(`/admin/trips`);
+    }
   };
 
   return (
@@ -89,7 +98,7 @@ const HomePage = () => {
           </div>
           <div className="button">
             <Button variant="contained" color="secondary" onClick={trips}>
-              Trips
+              Viagens
             </Button>
           </div>
         </div>

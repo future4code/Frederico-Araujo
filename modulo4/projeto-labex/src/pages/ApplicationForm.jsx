@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import { TextField, Button } from "@mui/material";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 
 const Background = styled.div`
   background: rgb(43, 60, 140);
@@ -44,6 +45,7 @@ const Form = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  text-align: center;
   h1 {
     color: white;
   }
@@ -55,6 +57,9 @@ const Text = styled.div`
 `;
 
 const ApplicationForm = () => {
+  useEffect(() => {
+    document.title = "Formulário de cadastro";
+  }, []);
   const params = useParams();
 
   const [body, setBody] = useState({
@@ -65,7 +70,6 @@ const ApplicationForm = () => {
     country: "",
   });
 
-  // console.log(params.id);
   const getName = (e) => {
     setBody({ ...body, name: e.target.value });
   };
@@ -111,7 +115,6 @@ const ApplicationForm = () => {
     }
   };
 
-  console.log(body);
   return (
     <Background>
       <Header />
