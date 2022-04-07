@@ -1,0 +1,15 @@
+###
+GET http://localhost:3003/users
+
+###
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "Cássia",
+    "cpf": "111.111.111-14",
+    "birthDate": "07/01/1969"
+}
+
+###
+GET http://localhost:3003/users/111.111.111-11
