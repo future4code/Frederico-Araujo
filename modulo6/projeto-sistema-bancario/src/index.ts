@@ -105,6 +105,55 @@ app.get("/users/:cpf", (req: Request, res: Response) => {
       throw new Error("Usuário não encontrado");
     }
 
+    if (
+      user.transactions.balance !==
+      user.transactions.extract.reduce((prev, curr) => {
+        return prev + curr;
+      })
+    ) {
+      throw new Error("Valores incorretos");
+    }
+
+    res
+      .status(200)
+      .send(
+        `O saldo do ${user.name} é de R$ ${user.transactions.balance.toFixed(
+          2
+        )}`
+      );
+  } catch (error: any) {
+    res.status(errorCode).send(error.message);
+  }
+});
+
+app.put("/users/:cpf", (req: Request, res: Response) => {
+  let errorCode = 400;
+
+  try {
+    const cpf = req.params.cpf;
+
+    const { name, value } = req.body;
+
+    let user: user | undefined = users.find((item) => {
+      return item.cpf === cpf;
+    });
+
+    if (!user) {
+      errorCode = 404;
+      throw new Error("Usuário não encontrado");
+    }
+
+    if (user.name !== name) {
+      throw new Error("Nome do usuário incorreto.");
+    }
+
+    if (isNaN(value)) {
+      throw new Error("Insira um valor correto");
+    }
+
+    user.transactions.balance += value;
+    user.transactions.extract.push(value);
+
     res.status(200).send(user);
   } catch (error: any) {
     res.status(errorCode).send(error.message);
