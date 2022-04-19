@@ -1,0 +1,9 @@
+###
+GET http://localhost:3003/
+###
+POST http://localhost:3003/001
+Content-Type: application/json
+
+{
+    "salary": 457000
+}
