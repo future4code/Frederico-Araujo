@@ -1,0 +1,41 @@
+###
+GET  http://localhost:3003/users
+
+###
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "Bia",
+    "email":"bia@labecommerce.com",
+    "password":"123456"
+}
+
+###
+GET  http://localhost:3003/products
+
+###
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "Leite",
+    "price":2,
+    "image_url":"Leite.jpeg"
+}
+
+###
+GET  http://localhost:3003/purchases
+
+###
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "userId": "1651534260753",
+    "productId":"1651617973026",
+    "quantity":3
+}
+
+###
+GET  http://localhost:3003/users/1651534260753/purchases
